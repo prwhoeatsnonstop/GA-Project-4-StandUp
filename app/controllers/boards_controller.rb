@@ -4,13 +4,14 @@ class BoardsController < ApplicationController
   before_action :authenticate_user!, :except => [ :show, :index ]
 
 def landingpage
-  redirect_to '/boards'
+  redirect_to '/react'
 end
 
   # GET /boards
   # GET /boards.json
   def index
     @boards = Board.all
+    @user = User.find(current_user.id)
   end
 
   # GET /boards/1
@@ -93,7 +94,7 @@ end
 
   # Only allow a list of trusted parameters through.
   def board_params
-    params.require(:board).permit(:accomplishment, :challenges, :task, :resources, :text)
+    params.require(:board).permit(:accomplishment, :challenges, :task, :resources)
   end
 
 end
