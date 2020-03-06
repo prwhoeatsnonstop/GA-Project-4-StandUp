@@ -3,6 +3,10 @@ class BoardsController < ApplicationController
   # before_action :authenticate_user!
   before_action :authenticate_user!, :except => [ :show, :index ]
 
+def landingpage
+  redirect_to '/boards'
+end
+
   # GET /boards
   # GET /boards.json
   def index
