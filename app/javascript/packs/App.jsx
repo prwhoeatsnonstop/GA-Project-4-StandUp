@@ -75,7 +75,7 @@ class App extends React.Component {
         //     // resources.push(board.resources)
 
 
-    const displayBoard = this.state.board.map((board, index) => {
+    const accomplishment = this.state.board.map((board, index) => {
         return (
             <div key={index}>
                 <li>{board.accomplishment}</li>
@@ -83,26 +83,55 @@ class App extends React.Component {
         )
     });
 
+    const challenges = this.state.board.map((board, index) => {
+        return (
+            <div key={index}>
+                <li>{board.challenges}</li>
+            </div>
+        )
+    });
+
+    const task = this.state.board.map((board, index) => {
+        return (
+            <div key={index}>
+                <li>{board.task}</li>
+            </div>
+        )
+    });
+
+    const resources = this.state.board.map((board, index) => {
+        return (
+            <div key={index}>
+                <li>{board.resources}</li>
+            </div>
+        )
+    });
+
         return (
             <div>
                 <h2>Boards</h2>
-                <button onClick={()=>{ this.getBoards() }}>
+                <button onClick={(evt)=>{ this.getBoards() }}>
                     Click to See Boards
                 </button>
+                <p></p>
                 <div className = "container">
                     <div className="row">
-                        <div className="col">
-                            <ol>
-                                {displayBoard}
-                            </ol>
+                        <div className="col-6">
+                            <h2>Accomplishments</h2>
+                            {accomplishment}
                         </div>
-                        <div className="col">
+                        <div className="col-6">
+                            <h2>Challenges</h2>
+                            {challenges}
                         </div>
-                    </div>
-                    <div className="row">
-                        <div className="col">
+
+                        <div className="col-6">
+                            <h2>Tasks</h2>
+                            {task}
                         </div>
-                        <div className="col">
+                        <div className="col-6">
+                            <h2>Resources</h2>
+                            {resources}
                         </div>
                     </div>
                 </div>
