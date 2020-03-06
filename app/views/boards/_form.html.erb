@@ -1,0 +1,42 @@
+<%= form_with(model: board, local: true) do |form| %>
+  <% if board.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(board.errors.count, "error") %> prohibited this board from being saved:</h2>
+
+      <ul>
+        <% board.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :accomplishment %>
+    <%= form.text_area :accomplishment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :challenges %>
+    <%= form.text_area :challenges %>
+  </div>
+
+  <div class="field">
+    <%= form.label :task %>
+    <%= form.text_area :task %>
+  </div>
+
+  <div class="field">
+    <%= form.label :resources %>
+    <%= form.text_field :resources %>
+  </div>
+
+  <div class="field">
+    <%= form.label :text %>
+    <%= form.text_field :text %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
