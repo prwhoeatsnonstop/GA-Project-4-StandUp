@@ -4,7 +4,7 @@ class BoardsController < ApplicationController
   before_action :authenticate_user!, :except => [ :show, :index ]
 
 def landingpage
-  redirect_to '/react'
+  redirect_to '/boards'
 end
 
   # GET /boards
@@ -12,7 +12,29 @@ end
   def index
     @boards = Board.all
     @user = User.find(current_user.id)
+# the respond include user model so we can access data from user
+    respond_to do |format|
+      format.json {
+        render :json => @boards,
+        include: :user
+      }
+
+      format.html
+    end
   end
+
+#     def index
+#     @posts = Post.where(user: current_user)
+
+#     respond_to do |format|
+#     format.json {
+#       render :json => @posts,
+#       include: :user
+#     }
+
+#     format.html
+# end
+#   end
 
   # GET /boards/1
   # GET /boards/1.json

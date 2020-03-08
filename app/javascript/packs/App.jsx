@@ -5,7 +5,8 @@ class App extends React.Component {
     constructor() {
         super()
         this.state = {
-            board: []
+            board: [],
+            newBoard: []
             // accomplishment: [],
             // challenges: [],
             // task: [],
@@ -37,6 +38,10 @@ class App extends React.Component {
     //     })
     // }
 
+    componentDidMount(){
+        this.getBoards();
+    }
+
     getBoards(){
 
       const url = '/boards.json';
@@ -52,6 +57,33 @@ class App extends React.Component {
         })
     }
 
+    getNewBoard(){
+
+      const url = '/boards/new';
+      axios.get(url)
+        .then((response) => {
+
+          const data = response.data
+          console.log(data);
+        }).catch((error)=>{
+          console.log(error);
+        })
+    }
+
+    postBoard(){
+
+      const url = '/boards.json';
+      axios.post(url)
+        .then((response) => {
+
+          const data = response.data
+          console.log(data);
+          this.setState({ newBoard: data })
+
+        }).catch((error)=>{
+          console.log(error);
+        })
+    }
 
     render() {
         // const mapItem = item => {
@@ -78,7 +110,7 @@ class App extends React.Component {
     const accomplishment = this.state.board.map((board, index) => {
         return (
             <div key={index}>
-                <li>{board.accomplishment}</li>
+                <p>Entry: {board.accomplishment} created by {board.user.email} at {board.created_at}</p>
             </div>
         )
     });
@@ -86,7 +118,7 @@ class App extends React.Component {
     const challenges = this.state.board.map((board, index) => {
         return (
             <div key={index}>
-                <li>{board.challenges}</li>
+                <p>Entry: {board.challenges} created by {board.user.email} at {board.created_at}</p>
             </div>
         )
     });
@@ -94,7 +126,7 @@ class App extends React.Component {
     const task = this.state.board.map((board, index) => {
         return (
             <div key={index}>
-                <li>{board.task}</li>
+                <p>Entry: {board.task} created by {board.user.email} at {board.created_at}</p>
             </div>
         )
     });
@@ -102,23 +134,22 @@ class App extends React.Component {
     const resources = this.state.board.map((board, index) => {
         return (
             <div key={index}>
-                <li>{board.resources}</li>
+                <p>Entry: {board.resources} created by {board.user.email} at {board.created_at}</p>
             </div>
         )
     });
 
         return (
             <div>
-                <h2>Boards</h2>
-                <button onClick={(evt)=>{ this.getBoards() }}>
-                    Click to See Boards
-                </button>
-                <p></p>
                 <div className = "container">
+                    <h2>Boards</h2>
                     <div className="row">
                         <div className="col-6">
                             <h2>Accomplishments</h2>
                             {accomplishment}
+                            <button onClick={()=>{ this.getNewBoard() }}>
+                                Add entry
+                             </button>
                         </div>
                         <div className="col-6">
                             <h2>Challenges</h2>
@@ -143,3 +174,7 @@ class App extends React.Component {
 
 
 export default App;
+
+                //took out from underneath <h2>Board</h2> <button onClick={(evt)=>{ this.getBoards() }}>
+                //     Click to See Boards
+                // </button>

@@ -1,25 +1,32 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Accomplishment:</strong>
-  <%= @board.accomplishment %>
-</p>
+<div class="container">
+<div class="row">
 
-<p>
-  <strong>Challenges:</strong>
-  <%= @board.challenges %>
-</p>
+  <div class="col-6">
+  	<strong>Accomplishment:</strong>
+  	<%= @board.accomplishment %>
+	</div>
 
-<p>
-  <strong>Task:</strong>
-  <%= @board.task %>
-</p>
+  <div class="col-6">
+  	<strong>Challenges:</strong>
+  	<%= @board.challenges %>
+	</div>
 
-<p>
-  <strong>Resources:</strong>
-  <%= @board.resources %>
-</p>
+  <div class="w-100"></div>
 
+  <div class="col-6">
+  	<strong>Task:</strong>
+  	<%= @board.task %>
+	</div>
+  <div class="col-6">
+  	<strong>Resources:</strong>
+  	<%= @board.resources %>
+	</div>
+</div>
+</div>
 
+<div class="show">
 <%= link_to 'Edit', edit_board_path(@board) %> |
 <%= link_to 'Back', boards_path %>
+</div>

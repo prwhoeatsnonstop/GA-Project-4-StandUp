@@ -13,3 +13,61 @@
  *= require_tree .
  *= require_self
  */
+
+ h1 {
+ 	text-align: center;
+ }
+
+ .col-6 {
+	border: 0.7px solid black;
+}
+
+.container {
+	text-align: center;
+}
+
+.show {
+  position: absolute;
+  left: 47.7%;
+  top: 10%;
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.index {
+  position: absolute;
+  left: 47.7%;
+  top: 61%;
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.index-logout {
+	position: absolute;
+  left: 47.7%;
+  top: 67%;
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.actions-boards {
+	position: absolute;
+  left: 47.7%;
+  top: 25%;
+  padding: 5px;
+}
+
+.edit {
+	position: absolute;
+  left: 48%;
+  top: 30%;
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.newBack {
+	position: absolute;
+  left: 47.7%;
+  top: 30%;
+  padding: 5px;
+}

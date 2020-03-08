@@ -11,28 +11,36 @@
     </div>
   <% end %>
 
-  <div class="field">
+<div class="container">
+<div class="row">
+
+  <div class="field col">
     <%= form.label :accomplishment %>
     <%= form.text_area :accomplishment %>
   </div>
 
-  <div class="field">
+  <div class="field col">
     <%= form.label :challenges %>
     <%= form.text_area :challenges %>
   </div>
 
-  <div class="field">
+  <div class="w-100"></div>
+
+
+  <div class="field col">
     <%= form.label :task %>
     <%= form.text_area :task %>
   </div>
 
-  <div class="field">
+  <div class="field col">
     <%= form.label :resources %>
-    <%= form.text_field :resources %>
+    <%= form.text_area :resources %>
   </div>
 
+</div>
+</div>
 
-  <div class="actions">
+  <div class="actions-boards">
     <%= form.submit %>
   </div>
 <% end %>
