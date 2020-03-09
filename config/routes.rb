@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   get '/' => 'boards#landingpage'
   get '/search' => 'boards#search'
 
+  get '/archives' => 'boards#archive', as: 'archive'
+
+
   #a catchall route that matches any of the potential routes that might come from our React app, and funnel them to our onepage_controller#index action. This being the action that renders our React application
   match '*path', to: 'boards#index', via: :all
 

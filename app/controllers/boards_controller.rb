@@ -28,6 +28,32 @@ end
       format.html
     end
 
+    # @boardHistory = Board.where(created_at: 1.week.ago..Date.today + 1)
+
+  else redirect_to '/users/sign_in'
+  end
+  end
+
+  def archive
+    # @boardHistory = Board.where(created_at: 1.week.ago..Date.today + 1)
+    # @boards = Board.all
+    if user_signed_in?
+      @user = User.find(current_user.id)
+  # the respond include user model so we can access data from user
+      respond_to do |format|
+        format.json {
+          render :json => @boards,
+          include: :user
+        }
+
+      format.html
+    end
+
+# @search is an instance variable. This part is accessing BoardSearch model, and create new instances of that and is gonna pass in the search parameters, then calling scope method on search. Scope is defined in class of BoardSearch
+    @search = BoardSearch.new(params[:search])
+    @boards = @search.scope
+
+    # @boardHistory = Board.where(created_at: 1.week.ago..Date.today + 1)
   else redirect_to '/users/sign_in'
   end
   end

@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="container">
+	<div class="row">
+		<div class="pull-right range-query">
+
+			<%= form_tag archive_path, method: :get do %>
+			<!-- the search[date_from and date_to] is for user to input beginning and end of date -->
+				<%= text_field_tag 'search[date_from]', @search.date_from %>
+				<%= text_field_tag 'search[date_to]', @search.date_to %>
+				<%= submit_tag 'Search', class: 'btn search-button' %>
+			<% end %>
+		</div>
+	</div>
+
+
+<% if user_signed_in? %>
+<h1>Hello <%= @user.email %></h1>
+<% end %>
+
+
+<h2>Archive Board</h2>
+	<p>
+		<% @boards.each do |board| %>
+			<p>
+				Entry: <%= board.accomplishment %> created by <%= board.user.email %> at <%= board.created_at %>
+			</p>
+		<% end %>
+	</p>
+
+</div>

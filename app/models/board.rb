@@ -1,5 +1,6 @@
 class Board < ApplicationRecord
   belongs_to :user
+
   # include PgSearch
 
 
