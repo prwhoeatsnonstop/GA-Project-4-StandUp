@@ -72,10 +72,26 @@
   padding: 5px;
 }
 
+/*#1e5a7e*/
 .bg-custom {
-    background-color: #004949;
+    background-color: #215e83;
 }
 
-.text-custom {
+a.app-name {
 	color:white;
+}
+
+/*a.app-name:hover {
+  color: #fff;
+  background-color: #255;
+}*/
+
+/*.field {
+	border: 1px solid black;
+}*/
+
+
+a.navlink {
+  color: green;
+  background-color: grey;
 }

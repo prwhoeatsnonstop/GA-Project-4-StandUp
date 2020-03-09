@@ -21,6 +21,10 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'react_on_rails', '~> 11.3.0'
 
+gem 'jquery-rails'
+gem 'pg_search'
+
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

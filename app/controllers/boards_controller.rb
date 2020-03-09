@@ -7,37 +7,31 @@ def landingpage
   redirect_to '/boards'
 end
 
+
+def search
+    @search_results_boards = Board.search_by_boards(params[:query])
+end
+
   # GET /boards
   # GET /boards.json
   def index
     @boards = Board.all
     if user_signed_in?
-    @user = User.find(current_user.id)
-# the respond include user model so we can access data from user
-    respond_to do |format|
-      format.json {
-        render :json => @boards,
-        include: :user
-      }
+      @user = User.find(current_user.id)
+  # the respond include user model so we can access data from user
+      respond_to do |format|
+        format.json {
+          render :json => @boards,
+          include: :user
+        }
 
       format.html
     end
+
   else redirect_to '/users/sign_in'
   end
   end
 
-#     def index
-#     @posts = Post.where(user: current_user)
-
-#     respond_to do |format|
-#     format.json {
-#       render :json => @posts,
-#       include: :user
-#     }
-
-#     format.html
-# end
-#   end
 
   # GET /boards/1
   # GET /boards/1.json
