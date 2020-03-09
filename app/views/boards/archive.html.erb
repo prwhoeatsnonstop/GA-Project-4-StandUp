@@ -1,9 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 
+
 <div class="container">
 	<div class="row">
-		<div class="pull-right range-query">
+		<div class="pull-right range-query col" >
 
 			<%= form_tag archive_path, method: :get do %>
 			<!-- the search[date_from and date_to] is for user to input beginning and end of date -->
@@ -12,15 +13,14 @@
 				<%= submit_tag 'Search', class: 'btn search-button' %>
 			<% end %>
 		</div>
+
+		<div>
+			<%= link_to 'Back', boards_path %>
+		</div>
 	</div>
 
-
-<% if user_signed_in? %>
-<h1>Hello <%= @user.email %></h1>
-<% end %>
-
-
 <h2>Archive Board</h2>
+
 	<div class="container">
   	<div class="row">
     	<div class="col-6">
@@ -61,6 +61,7 @@
 					<% end %>
 			</div>
   	</div>
+
 
 	</div>
 

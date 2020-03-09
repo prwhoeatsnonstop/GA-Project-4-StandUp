@@ -6,7 +6,7 @@
 
 <div>
 <form method="get" action="/archives">
-    <button type="submit">Archives</button>
+    <button type="submit">View Archives</button>
 </form>
 </div>
 
@@ -88,18 +88,10 @@
 			</div>
   	</div>
 
-<form method="get" action="/archives">
-    <button type="submit">Archives</button>
-</form>
-
 	</div>
 
 <div class="index">
 <% if user_signed_in? %>
 <%= link_to 'New Entry', new_board_path %>
 <% end %>
-</div>
-
-<div class="index-logout">
-<%= link_to 'log out', destroy_user_session_url, method: :delete %>
 </div>
