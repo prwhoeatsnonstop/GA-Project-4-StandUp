@@ -21,12 +21,47 @@
 
 
 <h2>Archive Board</h2>
-	<p>
-		<% @boards.each do |board| %>
-			<p>
-				Entry: <%= board.accomplishment %> created by <%= board.user.email %> at <%= board.created_at %>
-			</p>
-		<% end %>
-	</p>
+	<div class="container">
+  	<div class="row">
+    	<div class="col-6">
+    		<h2>Accomplishments</h2>
+					<% @boards.each do |board| %>
+						<p>
+							Entry: <%= board.accomplishment %> created by <%= board.user.email %> at <%= board.created_at %>
+						</p>
+					<% end %>
+			</div>
+
+    	<div class="col-6">
+    		<h2>Challenges</h2>
+					<% @boards.each do |board| %>
+						<p>
+							Entry: <%= board.challenges %> created by <%= board.user.email %> at <%= board.created_at %>
+						</p>
+					<% end %>
+			</div>
+
+    	<div class="w-100"></div>
+
+    	<div class="col-6">
+    	<h2>Tasks</h2>
+        <% @boards.each do |board| %>
+					<p>
+						Entry: <%= board.task %> created by <%= board.user.email %> at <%= board.created_at %>
+					</p>
+				<% end %>
+			</div>
+
+    	<div class="col-6">
+    		<h2>Resources</h2>
+	      	<% @boards.each do |board| %>
+						<p>
+							Entry: <%= board.task %> created by <%= board.user.email %> at <%= board.created_at %>
+						</p>
+					<% end %>
+			</div>
+  	</div>
+
+	</div>
 
 </div>
