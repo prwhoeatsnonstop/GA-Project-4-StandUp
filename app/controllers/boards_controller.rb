@@ -11,6 +11,7 @@ end
   # GET /boards.json
   def index
     @boards = Board.all
+    if user_signed_in?
     @user = User.find(current_user.id)
 # the respond include user model so we can access data from user
     respond_to do |format|
@@ -21,6 +22,8 @@ end
 
       format.html
     end
+  else redirect_to '/users/sign_in'
+  end
   end
 
 #     def index

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/' => 'boards#landingpage'
 
   #a catchall route that matches any of the potential routes that might come from our React app, and funnel them to our onepage_controller#index action. This being the action that renders our React application
-  match '*path', to: 'onepage#index', via: :all
+  match '*path', to: 'boards#index', via: :all
 
 
 end
