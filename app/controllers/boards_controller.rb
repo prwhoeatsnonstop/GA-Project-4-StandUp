@@ -71,7 +71,12 @@ end
     @board = Board.new
     @user = current_user.id
     puts @user
+      respond_to do |format|
+        format.html
+        format.js
+      end
   end
+
 
   # GET /boards/1/edit
   def edit

@@ -11,6 +11,8 @@ require("channels")
 //= require jquery3
 //= require activestorage
 //= require_tree .
+//= require bootstrap-modal
+
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
