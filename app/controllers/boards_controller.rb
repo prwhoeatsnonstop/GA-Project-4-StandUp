@@ -19,6 +19,7 @@ end
     # @boards = Board.all
     if user_signed_in?
       @user = User.find(current_user.id)
+      @boardToday = Board.where(created_at: Date.today..Date.today + 1)
   # the respond include user model so we can access data from user
       respond_to do |format|
         format.json {
@@ -71,10 +72,6 @@ end
     @board = Board.new
     @user = current_user.id
     puts @user
-      respond_to do |format|
-        format.html
-        format.js
-      end
   end
 
 

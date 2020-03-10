@@ -45,3 +45,6 @@ https://stackoverflow.com/questions/5386318/how-do-i-turn-an-image-into-a-link-i
 <%= link_to root_path do %>
    <%= image_tag "image.jpg", class: "some css class here" %>
 <% end %>
+
+Make input field as required
+https://stackoverflow.com/questions/13541983/html5-required-validation-in-ruby-on-rails-forms/55735830
