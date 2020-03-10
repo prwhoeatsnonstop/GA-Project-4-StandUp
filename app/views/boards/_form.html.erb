@@ -1,3 +1,15 @@
+
+<%= bootstrap_form_for(@board, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-7") do |f| %>
+  <%= f.text_area :accomplishment %>
+  <%= f.text_area :challenges %>
+  <%= f.text_area :task %>
+  <%= f.text_area :resources %>
+  <div class="submitbutton">
+  <%= f.submit "Submit" %>
+	</div>
+<% end %>
+
+
 <%= form_with(model: board, local: true) do |form| %>
   <% if board.errors.any? %>
     <div id="error_explanation">
@@ -11,36 +23,4 @@
     </div>
   <% end %>
 
-<div class="container">
-<div class="row">
-
-  <div class="field col">
-    <%= form.label :accomplishment %>
-    <%= form.text_area :accomplishment %>
-  </div>
-
-  <div class="field col">
-    <%= form.label :challenges %>
-    <%= form.text_area :challenges %>
-  </div>
-
-  <div class="w-100"></div>
-
-
-  <div class="field col">
-    <%= form.label :task %>
-    <%= form.text_area :task %>
-  </div>
-
-  <div class="field col">
-    <%= form.label :resources %>
-    <%= form.text_area :resources %>
-  </div>
-
-</div>
-</div>
-
-  <div class="actions-boards">
-    <%= form.submit %>
-  </div>
 <% end %>

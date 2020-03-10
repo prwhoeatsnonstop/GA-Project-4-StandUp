@@ -1,20 +1,35 @@
 class BoardsController < ApplicationController
-  # before_action :set_board, only: [:show, :edit, :update, :destroy]
-  # before_action :authenticate_user!
-  before_action :authenticate_user!, :except => [ :show, :index ]
+  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 
-def landingpage
-  redirect_to '/boards'
-end
-
-
-def search
-    @search_results_boards = Board.search_by_boards(params[:query])
-end
+  def landingpage
+    redirect_to '/boards'
+  end
 
   # GET /boards
   # GET /boards.json
   def index
+    @boardToday = Board.where(created_at: Date.today..Date.today + 1)
+    # @boards = Board.all
+    if user_signed_in?
+      @user = User.find(current_user.id)
+  # the respond include user model so we can access data from user
+      respond_to do |format|
+        format.json {
+          render :json => @boardsToday,
+          include: :user
+        }
+
+      format.html
+    end
+
+    # @boardHistory = Board.where(created_at: 1.week.ago..Date.today + 1)
+
+    else redirect_to '/users/sign_in'
+    end
+  end
+
+  # SAME AS GET '/BOARDS', CREATING NEW PATH FOR REDIRECT
+  def list
     @boardToday = Board.where(created_at: Date.today..Date.today + 1)
     # @boards = Board.all
     if user_signed_in?
@@ -59,6 +74,24 @@ end
   end
   end
 
+  def singleBoard
+    @board = Board.find(params[:id])
+  end
+
+  def createBoard
+    @board = Board.new(board_params)
+    @boards = Board.all
+    @board.user = current_user
+    respond_to do |format|
+      if @board.save
+        format.html { redirect_to @allBoardsList, notice: 'Board was successfully created.' }
+        # format.json { render :show, status: :created, location: @board }
+      else
+        format.html { render :new }
+        format.json { render json: @board.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   # GET /boards/1
   # GET /boards/1.json

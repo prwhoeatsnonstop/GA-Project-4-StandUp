@@ -15,8 +15,8 @@
   # user2.save
 
 # YET TO TEST SEED FILE
-  board1 = Board.new(accomplishment: 'did Ruby', challenges: 'fiddle with React', task: 'complete project 4', resources: 'stack overflow', user_id: 2);
+  board1 = Board.new(accomplishment: 'did Ruby', challenges: 'fiddle with React', task: 'complete project 4', resources: 'stack overflow', user_id: 2, created_at: '2020-03-02');
   board1.save
 
-  board2 = Board.new(accomplishment: 'did Express', challenges: 'fiddle with React', task: 'complete project 2', resources: 'dev community', user_id: 1);
+  board2 = Board.new(accomplishment: 'did Express', challenges: 'fiddle with React', task: 'complete project 2', resources: 'dev community', user_id: 1, created_at: '2020-03-03');
   board2.save

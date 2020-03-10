@@ -87,7 +87,7 @@ end
   # POST /boards.json
   def create
     @board = Board.new(board_params)
-    @boards = Board.all
+    # @boards = Board.all
     @board.user = current_user
     respond_to do |format|
       if @board.save

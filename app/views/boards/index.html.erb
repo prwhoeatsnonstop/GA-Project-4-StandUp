@@ -10,31 +10,33 @@
 </form>
 </div>
 
-<h1>Stand Up Boards</h1>
+<h1>Stand Up Board</h1>
 
   <div class="container">
   	<div class="row">
     	<div class="col-6">
     		<h2>Accomplishments</h2>
-					<% @boards.each do |board| %>
+					<% @boardToday.each do |board| %>
 						<p>
 							Entry: <%= board.accomplishment %> created by <%= board.user.email %> at <%= board.created_at %>
 						</p>
 						<span>
-							<%= link_to 'Show', board %>
+							<%# link_to 'Show', board %>
 						</span>
+						<% if board.user == current_user %>
 						<span>
 							<%= link_to 'Edit', edit_board_path(board) %>
 						</span>
 						<span>
 							<%= link_to 'Destroy', board, method: :delete, data: { confirm: 'Are you sure?' } %>
 						</span>
+							<% end %>
 					<% end %>
 			</div>
 
     	<div class="col-6">
     		<h2>Challenges</h2>
-					<% @boards.each do |board| %>
+					<% @boardToday.each do |board| %>
 						<p>
 							Entry: <%= board.challenges %> created by <%= board.user.email %> at <%= board.created_at %>
 						</p>
@@ -53,7 +55,7 @@
 
     	<div class="col-6">
     	<h2>Tasks</h2>
-        <% @boards.each do |board| %>
+        <% @boardToday.each do |board| %>
 					<p>
 						Entry: <%= board.task %> created by <%= board.user.email %> at <%= board.created_at %>
 					</p>
@@ -71,7 +73,7 @@
 
     	<div class="col-6">
     		<h2>Resources</h2>
-	      	<% @boards.each do |board| %>
+	      	<% @boardToday.each do |board| %>
 						<p>
 							Entry: <%= board.task %> created by <%= board.user.email %> at <%= board.created_at %>
 						</p>

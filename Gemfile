@@ -22,7 +22,18 @@ gem 'jbuilder', '~> 2.7'
 gem 'react_on_rails', '~> 11.3.0'
 
 gem 'jquery-rails'
+
 gem 'pg_search'
+
+gem 'bootstrap_form'
+
+
+# https://github.com/heartcombo/simple_form
+gem 'simple_form'
+
+gem 'bootstrap', '~> 4.4.1'
+
+
 
 
 # Use Active Storage variant
