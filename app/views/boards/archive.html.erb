@@ -1,16 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<div class="container">
-	<div class="row">
-		<div class="pull-right range-query col" >
-
-			<%= form_tag archive_path, method: :get do %>
+	<%= form_tag archive_path, method: :get do %>
 			<!-- the search[date_from and date_to] is for user to input beginning and end of date -->
-				<%= text_field_tag 'search[date_from]', @search.date_from %>
-				<%= text_field_tag 'search[date_to]', @search.date_to %>
-				<%= submit_tag 'Search', class: 'btn search-button' %>
-			<% end %>
-		</div>
+		<%= text_field_tag 'search[date_from]', @search.date_from %>
+		<%= text_field_tag 'search[date_to]', @search.date_to %>
+		<%= submit_tag 'Search', class: 'btn search-button' %>
+	<% end %>
+
 
 		<div>
 			<%= link_to 'Back', boards_path %>
@@ -19,48 +15,71 @@
 
 <h2>Archive Board</h2>
 
-	<div class="container">
-  	<div class="row">
-    	<div class="col-6">
-    		<h2>Accomplishments</h2>
-					<% @boards.each do |board| %>
-						<p>
-							<%= board.accomplishment %> by <span class="span-archive"><%= board.user.email %></span> || <%= board.created_at.strftime("Posted on %m/%d/%Y at %I:%M%p") %>
-						</p>
-					<% end %>
-			</div>
+<div class="container" id="wrapper">
 
-    	<div class="col-6">
-    		<h2>Challenges</h2>
-					<% @boards.each do |board| %>
-						<p>
-							<%= board.challenges %> by <span class="span-archive"><%= board.user.email %></span> || <%= board.created_at.strftime("Posted on %m/%d/%Y at %I:%M%p") %>
-						</p>
-					<% end %>
-			</div>
-
-    	<div class="w-100"></div>
-
-    	<div class="col-6">
-    	<h2>Tasks</h2>
-        <% @boards.each do |board| %>
-					<p>
-						<%= board.task %> by <span class="span-archive"><%= board.user.email %></span> || <%= board.created_at.strftime("Posted on %m/%d/%Y at %I:%M%p") %>
+	<div class="card" id="left">
+	  <div class="card-header">
+	    <h1>Accomplishments</h1>
+	  </div>
+	  <div class="card-body">
+	    <blockquote class="blockquote mb-0">
+	    	<% @boards.each do |board| %>
+	    		<p>
+							<%= board.accomplishment %> by <%= board.user.email %> <%= board.created_at.strftime(", posted on %m/%d/%Y at %I:%M%p") %>
 					</p>
-				<% end %>
-			</div>
-
-    	<div class="col-6">
-    		<h2>Resources</h2>
-	      	<% @boards.each do |board| %>
-						<p>
-							<%= board.task %> by <span class="span-archive"><%= board.user.email %></span> || <%= board.created_at.strftime("Posted on %m/%d/%Y at %I:%M%p") %>
-						</p>
-					<% end %>
-			</div>
-  	</div>
-
-
+							<br>
+						<% end %>
+	    </blockquote>
+	  </div>
 	</div>
 
+	<div class="card" id="right">
+	  <div class="card-header">
+	    <h1>Challenges</h1>
+	  </div>
+	  <div class="card-body">
+	    <blockquote class="blockquote mb-0">
+	    	<% @boards.each do |board| %>
+					<p>
+							<%= board.challenges %> by <%= board.user.email %><%= board.created_at.strftime(", posted on %m/%d/%Y at %I:%M%p") %>
+					</p>
+							<br>
+						<% end %>
+			</blockquote>
+	  </div>
+	</div>
+</div>
+
+<div class="container" id="wrapper">
+	<div class="card" id="left">
+	  <div class="card-header">
+	    <h1>Tasks</h1>
+	  </div>
+	  <div class="card-body">
+	    <blockquote class="blockquote mb-0">
+	    	<% @boards.each do |board| %>
+					<p>
+						<%= board.task %> by <%= board.user.email %><%= board.created_at.strftime(", posted on %m/%d/%Y at %I:%M%p") %>
+					</p>
+							<br>
+						<% end %>
+			</blockquote>
+	  </div>
+	</div>
+
+	<div class="card" id="right">
+	  <div class="card-header">
+	    <h1>Resources</h1>
+	  </div>
+	  <div class="card-body">
+	    <blockquote class="blockquote mb-0">
+	    	<% @boards.each do |board| %>
+					<p>
+						<%= board.resources %> by <%= board.user.email %><%= board.created_at.strftime(", posted on %m/%d/%Y at %I:%M%p") %>
+					</p>
+							<br>
+						<% end %>
+			</blockquote>
+	  </div>
+	</div>
 </div>

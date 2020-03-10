@@ -95,3 +95,23 @@ a.navlink {
 .span-archive {
 	color: grey;
 }
+
+input.btn.search-button {
+	border: 0.5px solid black;
+	padding: 2px;
+	margin-left: 10px;
+}
+
+
+/*https://stackoverflow.com/questions/17217766/two-divs-side-by-side-fluid-display*/
+#wrapper {
+  display: flex;
+}
+
+#left {
+  flex: 0 0 50%;
+}
+
+#right {
+  flex: 1 ;
+}

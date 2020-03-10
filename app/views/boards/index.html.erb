@@ -14,80 +14,117 @@
 <h1>Stand Up Board</h1>
 <h3><%= Date.today.strftime('%a, %d %b %Y') %> </h3>
 
+<div class="index">
+<% if user_signed_in? %>
+<%= link_to 'New Entry', new_board_path %>
+<% end %>
+</div>
 
-  <div class="container">
-  	<div class="row">
-    	<div class="col-6">
-    		<h2>Accomplishments</h2>
-					<% @boardToday.each do |board| %>
-						<p>
-							<%= board.accomplishment %> by <%= board.user.email %>
+<div class="container" id="wrapper">
+
+<div class="card" id="left">
+  <div class="card-header">
+    <h1>Accomplishments</h1>
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+    	<% @boardToday.each do |board| %>
+						<h5>
+							<%= board.accomplishment %>
 						<% if board.user == current_user %>
 							<%= link_to edit_board_path(board) do %>
-   							<%= image_tag 'edit.png',  style: 'height:2.5%;width:8%;'%>
+   							<%= image_tag 'edit.png',  style: 'height:1.5%;width:4%;'%>
 							<% end %>
 							<%= link_to board, method: :delete, data: { confirm: 'Are you sure?' } do %>
-   							<%= image_tag 'delete.jpg',  style: 'height:2.5%;width:8%;'%>
+   							<%= image_tag 'delete.jpg',  style: 'height:1.5%;width:4%;'%>
 							<% end %>
 							<% end %>
-						</p>
+						</h5>
+						<footer class="blockquote-footer"><cite title="Source Title">by <%= board.user.email %></cite></footer>
+						<br>
 					<% end %>
-			</div>
+    </blockquote>
+  </div>
+</div>
 
-    	<div class="col-6">
-    		<h2>Challenges</h2>
-					<% @boardToday.each do |board| %>
-						<p>
-							<%= board.challenges %> by <%= board.user.email %>
+<div class="card" id="right">
+  <div class="card-header">
+    <h1>Challenges</h1>
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+    	<% @boardToday.each do |board| %>
+						<h5>
+							<%= board.challenges %>
 						<% if board.user == current_user %>
 							<%= link_to edit_board_path(board) do %>
-   							<%= image_tag 'edit.png',  style: 'height:2.5%;width:8%;'%>
+   							<%= image_tag 'edit.png',  style: 'height:1.5%;width:4%;'%>
 							<% end %>
 							<%= link_to board, method: :delete, data: { confirm: 'Are you sure?' } do %>
-   							<%= image_tag 'delete.jpg',  style: 'height:2.5%;width:8%;'%>
+   							<%= image_tag 'delete.jpg',  style: 'height:1.5%;width:4%;'%>
 							<% end %>
 							<% end %>
-						</p>
+						</h5>
+						<footer class="blockquote-footer"><cite title="Source Title">by <%= board.user.email %></cite></footer>
+						<br>
 					<% end %>
-			</div>
-    	<div class="w-100"></div>
+		</blockquote>
+  </div>
+</div>
+</div>
 
-    	<div class="col-6">
-    	<h2>Tasks</h2>
-        <% @boardToday.each do |board| %>
-					<p>
-						<%= board.task %> by <%= board.user.email %>
+<div class="container" id="wrapper">
+<div class="card" id="left">
+  <div class="card-header">
+    <h1>Tasks</h1>
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+    	<% @boardToday.each do |board| %>
+						<h5>
+							<%= board.task %>
 						<% if board.user == current_user %>
 							<%= link_to edit_board_path(board) do %>
-   							<%= image_tag 'edit.png',  style: 'height:2.5%;width:8%;'%>
+   							<%= image_tag 'edit.png',  style: 'height:1.5%;width:4%;'%>
 							<% end %>
 							<%= link_to board, method: :delete, data: { confirm: 'Are you sure?' } do %>
-   							<%= image_tag 'delete.jpg',  style: 'height:2.5%;width:8%;'%>
+   							<%= image_tag 'delete.jpg',  style: 'height:1.5%;width:4%;'%>
 							<% end %>
 							<% end %>
-						</p>
-				<% end %>
-			</div>
-
-    	<div class="col-6">
-    		<h2>Resources</h2>
-	      	<% @boardToday.each do |board| %>
-						<p>
-							<%= board.task %> by <%= board.user.email %>
-						<% if board.user == current_user %>
-							<%= link_to edit_board_path(board) do %>
-   							<%= image_tag 'edit.png',  style: 'height:2.5%;width:8%;'%>
-							<% end %>
-							<%= link_to board, method: :delete, data: { confirm: 'Are you sure?' } do %>
-   							<%= image_tag 'delete.jpg',  style: 'height:2.5%;width:8%;'%>
-							<% end %>
-							<% end %>
-						</p>
+						</h5>
+						<footer class="blockquote-footer"><cite title="Source Title">by <%= board.user.email %></cite></footer>
+						<br>
 					<% end %>
-			</div>
-  	</div>
+		</blockquote>
+  </div>
+</div>
 
-	</div>
+<div class="card">
+  <div class="card-header" id="right">
+    <h1>Resources</h1>
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+    	<% @boardToday.each do |board| %>
+						<h5>
+							<%= board.resources %>
+						<% if board.user == current_user %>
+							<%= link_to edit_board_path(board) do %>
+   							<%= image_tag 'edit.png',  style: 'height:1.5%;width:4%;'%>
+							<% end %>
+							<%= link_to board, method: :delete, data: { confirm: 'Are you sure?' } do %>
+   							<%= image_tag 'delete.jpg',  style: 'height:1.5%;width:4%;'%>
+							<% end %>
+							<% end %>
+						</h5>
+						<footer class="blockquote-footer"><cite title="Source Title">by <%= board.user.email %></cite></footer>
+						<br>
+					<% end %>
+		</blockquote>
+  </div>
+</div>
+
+</div>
 
 <div class="index">
 <% if user_signed_in? %>
