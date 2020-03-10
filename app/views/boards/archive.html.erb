@@ -1,7 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-
-
 <div class="container">
 	<div class="row">
 		<div class="pull-right range-query col" >
@@ -27,7 +25,7 @@
     		<h2>Accomplishments</h2>
 					<% @boards.each do |board| %>
 						<p>
-							Entry: <%= board.accomplishment %> created by <%= board.user.email %> at <%= board.created_at %>
+							<%= board.accomplishment %> by <span class="span-archive"><%= board.user.email %></span> || <%= board.created_at.strftime("Posted on %m/%d/%Y at %I:%M%p") %>
 						</p>
 					<% end %>
 			</div>
@@ -36,7 +34,7 @@
     		<h2>Challenges</h2>
 					<% @boards.each do |board| %>
 						<p>
-							Entry: <%= board.challenges %> created by <%= board.user.email %> at <%= board.created_at %>
+							<%= board.challenges %> by <span class="span-archive"><%= board.user.email %></span> || <%= board.created_at.strftime("Posted on %m/%d/%Y at %I:%M%p") %>
 						</p>
 					<% end %>
 			</div>
@@ -47,7 +45,7 @@
     	<h2>Tasks</h2>
         <% @boards.each do |board| %>
 					<p>
-						Entry: <%= board.task %> created by <%= board.user.email %> at <%= board.created_at %>
+						<%= board.task %> by <span class="span-archive"><%= board.user.email %></span> || <%= board.created_at.strftime("Posted on %m/%d/%Y at %I:%M%p") %>
 					</p>
 				<% end %>
 			</div>
@@ -56,7 +54,7 @@
     		<h2>Resources</h2>
 	      	<% @boards.each do |board| %>
 						<p>
-							Entry: <%= board.task %> created by <%= board.user.email %> at <%= board.created_at %>
+							<%= board.task %> by <span class="span-archive"><%= board.user.email %></span> || <%= board.created_at.strftime("Posted on %m/%d/%Y at %I:%M%p") %>
 						</p>
 					<% end %>
 			</div>

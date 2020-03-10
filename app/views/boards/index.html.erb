@@ -18,19 +18,16 @@
     		<h2>Accomplishments</h2>
 					<% @boardToday.each do |board| %>
 						<p>
-							Entry: <%= board.accomplishment %> created by <%= board.user.email %> at <%= board.created_at %>
-						</p>
-						<span>
-							<%# link_to 'Show', board %>
-						</span>
+							<%= board.accomplishment %> by <%= board.user.email %>
 						<% if board.user == current_user %>
-						<span>
-							<%= link_to 'Edit', edit_board_path(board) %>
-						</span>
-						<span>
-							<%= link_to 'Destroy', board, method: :delete, data: { confirm: 'Are you sure?' } %>
-						</span>
+							<%= link_to edit_board_path(board) do %>
+   							<%= image_tag 'edit.png',  style: 'height:2.5%;width:8%;'%>
 							<% end %>
+							<%= link_to board, method: :delete, data: { confirm: 'Are you sure?' } do %>
+   							<%= image_tag 'delete.jpg',  style: 'height:2.5%;width:8%;'%>
+							<% end %>
+							<% end %>
+						</p>
 					<% end %>
 			</div>
 
@@ -38,17 +35,16 @@
     		<h2>Challenges</h2>
 					<% @boardToday.each do |board| %>
 						<p>
-							Entry: <%= board.challenges %> created by <%= board.user.email %> at <%= board.created_at %>
+							<%= board.challenges %> by <%= board.user.email %>
+						<% if board.user == current_user %>
+							<%= link_to edit_board_path(board) do %>
+   							<%= image_tag 'edit.png',  style: 'height:2.5%;width:8%;'%>
+							<% end %>
+							<%= link_to board, method: :delete, data: { confirm: 'Are you sure?' } do %>
+   							<%= image_tag 'delete.jpg',  style: 'height:2.5%;width:8%;'%>
+							<% end %>
+							<% end %>
 						</p>
-						<span>
-							<%= link_to 'Show', board %>
-						</span>
-						<span>
-							<%= link_to 'Edit', edit_board_path(board) %>
-						</span>
-						<span>
-							<%= link_to 'Destroy', board, method: :delete, data: { confirm: 'Are you sure?' } %>
-						</span>
 					<% end %>
 			</div>
     	<div class="w-100"></div>
@@ -57,17 +53,16 @@
     	<h2>Tasks</h2>
         <% @boardToday.each do |board| %>
 					<p>
-						Entry: <%= board.task %> created by <%= board.user.email %> at <%= board.created_at %>
-					</p>
-					<span>
-						<%= link_to 'Show', board %>
-					</span>
-					<span>
-						<%= link_to 'Edit', edit_board_path(board) %>
-					</span>
-					<span>
-						<%= link_to 'Destroy', board, method: :delete, data: { confirm: 'Are you sure?' } %>
-					</span>
+						<%= board.task %> by <%= board.user.email %>
+						<% if board.user == current_user %>
+							<%= link_to edit_board_path(board) do %>
+   							<%= image_tag 'edit.png',  style: 'height:2.5%;width:8%;'%>
+							<% end %>
+							<%= link_to board, method: :delete, data: { confirm: 'Are you sure?' } do %>
+   							<%= image_tag 'delete.jpg',  style: 'height:2.5%;width:8%;'%>
+							<% end %>
+							<% end %>
+						</p>
 				<% end %>
 			</div>
 
@@ -75,17 +70,16 @@
     		<h2>Resources</h2>
 	      	<% @boardToday.each do |board| %>
 						<p>
-							Entry: <%= board.task %> created by <%= board.user.email %> at <%= board.created_at %>
+							<%= board.task %> by <%= board.user.email %>
+						<% if board.user == current_user %>
+							<%= link_to edit_board_path(board) do %>
+   							<%= image_tag 'edit.png',  style: 'height:2.5%;width:8%;'%>
+							<% end %>
+							<%= link_to board, method: :delete, data: { confirm: 'Are you sure?' } do %>
+   							<%= image_tag 'delete.jpg',  style: 'height:2.5%;width:8%;'%>
+							<% end %>
+							<% end %>
 						</p>
-						<span>
-							<%= link_to 'Show', board %>
-						</span>
-						<span>
-							<%= link_to 'Edit', edit_board_path(board) %>
-						</span>
-						<span>
-							<%= link_to 'Destroy', board, method: :delete, data: { confirm: 'Are you sure?' } %>
-						</span>
 					<% end %>
 			</div>
   	</div>

@@ -36,3 +36,12 @@ https://stackoverflow.com/questions/40259220/dynamically-get-records-between-two
 
 postgreSQL query for date ranges
 https://popsql.com/learn-sql/postgresql/how-to-use-between/
+
+To size image_tag
+https://stackoverflow.com/questions/30693728/rails-image-tag-width-attribute-to-use-a-percentage-auto-value
+
+Turn image into link using rails
+https://stackoverflow.com/questions/5386318/how-do-i-turn-an-image-into-a-link-in-rails
+<%= link_to root_path do %>
+   <%= image_tag "image.jpg", class: "some css class here" %>
+<% end %>
