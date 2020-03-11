@@ -114,3 +114,9 @@ input.btn.search-button {
 #right {
 flex: 1 0;
 }
+
+.form {
+	display: flex;
+	padding: 2px;
+	margin-left: 10px;
+}
