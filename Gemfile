@@ -29,8 +29,6 @@ gem 'bootstrap_form'
 
 gem 'responders'
 
-gem 'bootstrap'
-
 
 # https://github.com/heartcombo/simple_form
 gem 'simple_form'
