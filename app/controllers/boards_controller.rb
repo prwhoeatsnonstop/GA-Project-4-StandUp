@@ -2,8 +2,6 @@ class BoardsController < ApplicationController
   # before_action :set_board, only: [:show, :edit, :update, :destroy]
   # before_action :authenticate_user!
   before_action :authenticate_user!, :except => [ :show, :index ]
-  respond_to :html, :json
-
 
 def landingpage
   redirect_to '/boards'

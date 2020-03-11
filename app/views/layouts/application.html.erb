@@ -6,7 +6,6 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%# javascript_pack_tag 'application' %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -15,12 +14,11 @@
     <span class="navbar-brand text-light"></span><a class="fa fa-paw fa-3x" href="/listings" ></span><a class="app-name" href="/boards"> StandUp</span>
 
 
-<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav mr-auto">
       <li class="nav-item nav-link text-light"></li>
     <% if user_signed_in? %>
-
     <li class="nav-item text-light">
         <%= link_to 'Log out', destroy_user_session_url, method: :delete, class: 'nav-link' %>
     </li>
@@ -35,25 +33,20 @@
     </li>
 
 
-
       <% end %>
 
         </ul>
-
-
 </div>
 
+<!--  <form class="form-inline my-2 my-lg-0" action="/search" method="GET">
+      <input class="form-control-lg input-xl" type="search" placeholder="Name, address, service" aria-label="Search" name="query">
+      <button class="btn btn-outline-success my-2 my-sm-0 text-warning" type="submit">Search</button>
+    </form> -->
 </nav>
 
   </head>
 
   <body>
-
     <%= yield %>
-
-    <% if user_signed_in? %>
-     <div id="modal-holder"></div>
-    <% end %>
-
   </body>
 </html>
