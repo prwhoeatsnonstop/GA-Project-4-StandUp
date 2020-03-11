@@ -55,16 +55,15 @@
 
 .edit {
 	position: absolute;
-  left: 48%;
-  top: 55%;
-  border: 1px solid black;
+  left: 47.5%;
+  top: 58%;
   padding: 5px;
 }
 
 .newBack {
 	position: absolute;
   left: 47.7%;
-  top: 50%;
+  top: 58%;
   padding: 5px;
 }
 
@@ -113,5 +112,5 @@ input.btn.search-button {
 }
 
 #right {
-  flex: 1 ;
+flex: 1 0;
 }

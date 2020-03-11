@@ -4,25 +4,29 @@
 <h1>Hello <%= @user.email %></h1>
 <% end %>
 
-<div>
-<form method="get" action="/archives">
-    <button type="submit">View Archives</button>
-</form>
-</div>
-
 <!-- https://stackoverflow.com/questions/32800720/ruby-and-rails-date-today-format/32800904 to show today's date -->
-<h1>Stand Up Board</h1>
-<h3><%= Date.today.strftime('%a, %d %b %Y') %> </h3>
-
-<div class="index">
-<% if user_signed_in? %>
-<%= link_to 'New Entry', new_board_path %>
-<% end %>
+<div class="container">
+	<h1>Stand Up Board</h1>
+	<h3><%= Date.today.strftime('%a, %d %b %Y') %> </h3>
+		<button>
+			<% if user_signed_in? %>
+				<%= link_to 'New Entry', new_board_path %>
+			<% end %>
+		</button>
+		<br>
+		<br>
+		<div>
+			<form method="get" action="/archives">
+    		<button type="submit">View Archives</button>
+			</form>
+		</div>
 </div>
+
+<br>
 
 <div class="container" id="wrapper">
 
-<div class="card" id="left">
+<div class="card" id="left" style="width: 553px;">
   <div class="card-header">
     <h1>Accomplishments</h1>
   </div>
@@ -47,7 +51,7 @@
   </div>
 </div>
 
-<div class="card" id="right">
+<div class="card" id="right" style="width: 553px;">
   <div class="card-header">
     <h1>Challenges</h1>
   </div>
@@ -74,7 +78,7 @@
 </div>
 
 <div class="container" id="wrapper">
-<div class="card" id="left">
+<div class="card" id="left" style="width: 553px;">
   <div class="card-header">
     <h1>Tasks</h1>
   </div>
@@ -100,7 +104,7 @@
 </div>
 
 <div class="card">
-  <div class="card-header" id="right">
+  <div class="card-header" id="right" style="width: 553px;">
     <h1>Resources</h1>
   </div>
   <div class="card-body">
@@ -124,10 +128,4 @@
   </div>
 </div>
 
-</div>
-
-<div class="index">
-<% if user_signed_in? %>
-<%= link_to 'New Entry', new_board_path %>
-<% end %>
 </div>

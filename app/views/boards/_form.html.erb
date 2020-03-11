@@ -1,4 +1,4 @@
-
+<div class="container">
 <%= bootstrap_form_for(@board, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-7") do |f| %>
   <%= f.text_area :accomplishment, :required => true %>
   <%= f.text_area :challenges, :required => true %>
@@ -24,3 +24,4 @@
   <% end %>
 
 <% end %>
+</div>

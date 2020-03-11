@@ -1,19 +1,16 @@
 <p id="notice"><%= notice %></p>
 
+<div class="container">
 	<%= form_tag archive_path, method: :get do %>
 			<!-- the search[date_from and date_to] is for user to input beginning and end of date -->
 		<%= text_field_tag 'search[date_from]', @search.date_from %>
 		<%= text_field_tag 'search[date_to]', @search.date_to %>
 		<%= submit_tag 'Search', class: 'btn search-button' %>
+		<%= link_to 'Back', boards_path %>
 	<% end %>
 
-
-		<div>
-			<%= link_to 'Back', boards_path %>
-		</div>
-	</div>
-
-<h2>Archive Board</h2>
+	<h2>Archive Board</h2>
+</div>
 
 <div class="container" id="wrapper">
 
