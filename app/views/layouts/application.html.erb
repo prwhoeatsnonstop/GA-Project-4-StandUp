@@ -15,11 +15,12 @@
     <span class="navbar-brand text-light"></span><a class="fa fa-paw fa-3x" href="/listings" ></span><a class="app-name" href="/boards"> StandUp</span>
 
 
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav ml-auto">
       <li class="nav-item nav-link text-light"></li>
     <% if user_signed_in? %>
+
     <li class="nav-item text-light">
         <%= link_to 'Log out', destroy_user_session_url, method: :delete, class: 'nav-link' %>
     </li>
@@ -34,20 +35,25 @@
     </li>
 
 
+
       <% end %>
 
         </ul>
+
+
 </div>
 
-<!--  <form class="form-inline my-2 my-lg-0" action="/search" method="GET">
-      <input class="form-control-lg input-xl" type="search" placeholder="Name, address, service" aria-label="Search" name="query">
-      <button class="btn btn-outline-success my-2 my-sm-0 text-warning" type="submit">Search</button>
-    </form> -->
 </nav>
 
   </head>
 
   <body>
+
     <%= yield %>
+
+    <% if user_signed_in? %>
+     <div id="modal-holder"></div>
+    <% end %>
+
   </body>
 </html>

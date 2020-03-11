@@ -2,6 +2,8 @@ class BoardsController < ApplicationController
   # before_action :set_board, only: [:show, :edit, :update, :destroy]
   # before_action :authenticate_user!
   before_action :authenticate_user!, :except => [ :show, :index ]
+  respond_to :html, :json
+
 
 def landingpage
   redirect_to '/boards'
@@ -61,6 +63,7 @@ end
   end
 
 
+
   # GET /boards/1
   # GET /boards/1.json
   def show
@@ -71,6 +74,7 @@ end
   def new
     @board = Board.new
     @user = current_user.id
+    # respond_modal_with @board
     puts @user
   end
 
@@ -91,6 +95,8 @@ end
     @board = Board.new(board_params)
     @boards = Board.all
     @board.user = current_user
+    # @board = Board.create(board_params)
+    # respond_modal_with @board, location: boards_path
     respond_to do |format|
       if @board.save
         format.html { redirect_to @board, notice: 'Board was successfully created.' }

@@ -13,6 +13,9 @@ require("channels")
 //= require_tree .
 //= require bootstrap-modal
 
+//= require popper
+//= require bootstrap-sprockets
+
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

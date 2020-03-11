@@ -27,11 +27,14 @@ gem 'pg_search'
 
 gem 'bootstrap_form'
 
+gem 'responders'
+
+gem 'bootstrap'
+
 
 # https://github.com/heartcombo/simple_form
 gem 'simple_form'
 
-gem 'bootstrap', '~> 4.4.1'
 
 
 
