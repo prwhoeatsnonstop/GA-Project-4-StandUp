@@ -14,7 +14,6 @@ require("channels")
 //= require bootstrap-modal
 
 //= require popper
-//= require bootstrap-sprockets
 
 
 
